@@ -1,4 +1,4 @@
-# lks-frontend-master
+# lks-frontend-januari
 
 ## Project setup
 ```
