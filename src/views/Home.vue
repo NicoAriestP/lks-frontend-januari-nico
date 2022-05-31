@@ -41,11 +41,42 @@
 <script>
   // @ is an alias to /src
   // import HelloWorld from '@/components/HelloWorld.vue'
-
+import axios from 'axios'
   export default {
     name: 'Home',
     components: {
       // HelloWorld
+    },
+    data(){
+        return {
+            email:'',
+            password:'',
+        }
+
+    },
+    methods:{
+        doLogin(){
+            axios.post(`http://127.0.0.1:8000/api/auth/login`,{
+                email:this.email,
+                password:this.password
+            })
+            .then(response => {
+                if (response.data.success==true) {
+                    console.log(response)
+                    localStorage.setItem('user', JSON.stringify(response.data.data))
+                    localStorage.setItem('token', JSON.stringify(response.data.token))
+                    localStorage.setItem('LoggedUser', true)
+                    window.location.href = "http://127.0.0.1:8080/barang"
+                }
+            })
+            .catch(error => {
+                alert("Username atau Password anda salah!")
+                this.email = ''
+                this.password = ''
+                console.error(error);
+
+            })
+        },
     }
   }
 </script>

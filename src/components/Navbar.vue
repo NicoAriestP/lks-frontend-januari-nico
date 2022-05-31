@@ -12,8 +12,9 @@
                     <li class="nav-item">
                         <router-link to="/" class="nav-link">Home</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li  class="nav-item">
                         <router-link to="/barang" class="nav-link" href="#" >Barang</router-link>
+                        
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
